@@ -19,8 +19,11 @@ function resolveAfter2Seconds(x) {
 }
 
 async function asyncExample(x) {
+    console.log('1');
     const a = await resolveAfter2Seconds(20);
+    console.log('2');
     const b = await resolveAfter2Seconds(30);
+    console.log('3');
     return x + a + b;
 }
 

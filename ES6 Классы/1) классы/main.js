@@ -14,7 +14,7 @@ class User {
     }
 }
 
-const user = new User("Ivan");
+const user = new User("dfdfgfgd");
 user.sayHi(); // Ivan
 
 /*

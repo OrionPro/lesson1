@@ -23,5 +23,5 @@ class User {
 
 const user = new User();
 console.log(user.userName);
-user.userName = 'Ivan';
+user.userName = 'Iauhdyguay';
 console.log(user.userName);

@@ -15,10 +15,10 @@ const promise = new Promise(function(resolve, reject) {
     // resolve(результат) при успешном выполнении
     // reject(ошибка) при ошибке
     setTimeout(() => {
-        resolve();
+        resolve('asgd');
     }, 1000)
 })
-    .then(() => {
+    .then((data) => {
         console.log('Success');
         return new Promise((resolve, reject) => {
             setTimeout(() => {

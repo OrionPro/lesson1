@@ -15,12 +15,28 @@ const promise = new Promise(function(resolve, reject) {
     // resolve(результат) при успешном выполнении
     // reject(ошибка) при ошибке
     setTimeout(() => {
-        resolve();
+        resolve('1');
     }, 1000)
 })
-    .then(() => {
-        console.log('Success');
+    .then((data) => {
+        console.log(data);
+        return new Promise(function(resolve, reject) {
+            setTimeout(() => {
+                reject(2);
+            }, 1000)
+        })
+    })
+    .then((data) => {
+        console.log(data);
+        return '3'
+    })
+    .then((data) => {
+        console.log(data);
+
     })
     .catch(() => {
-        console.log('Error');
+        return 'Error'
+    }).then(data => {
+        console.log('123', data);
+
     });

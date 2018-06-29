@@ -16,7 +16,7 @@
 var xmlhttp = new XMLHttpRequest();
 var url = "https://gist.githubusercontent.com/ebaranov/41bf38fdb1a2cb19a781/raw/fb097a60427717b262d5058633590749f366bd80/gistfile1.json";
 
-xmlhttp.onreadystatechange = function() {
+xmlhttp.onload = function() {
     if (this.readyState == 4 && this.status == 200) {
         const countries = JSON.parse(this.responseText);
         console.log(countries);

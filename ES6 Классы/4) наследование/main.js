@@ -26,11 +26,55 @@ class Rabbit extends Animal {
         super(name);
     }
 
-    geAction() {
+    getAction() {
         // вызываем метод из класса - родителя
         return this.action();
     }
 }
 
 const rabbit = new Rabbit('jump');
-rabbit.geAction(); // jump
+rabbit.getAction(); // jump
+
+
+
+
+
+
+
+const xhr = new XMLHttpRequest();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

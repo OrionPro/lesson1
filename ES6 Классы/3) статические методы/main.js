@@ -1,7 +1,7 @@
 
 
 /*
-   Класс, как и функция, является объектом. Статические свойства класса User – это свойства непосредственно User, то есть доступные из него «через точку».
+   Класс, как и функция, является объектом. Статические свойства класса LocalStorageService – это свойства непосредственно User, то есть доступные из него «через точку».
 
 Для их объявления используется ключевое слово static.
 
@@ -9,31 +9,50 @@
  */
 
 
-class LocalStorageService {
-    constructor(firstName, lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
+class LocalStorageServicePar {
 
     // получение name из Local Storage
-    static getName() {
-        return localStorage.getItem('name');
+    getCount() {
+        return localStorage.getItem('count');
     }
 
     // задание name из Local Storage
-    static setName(name) {
-        return localStorage.setItem('name', name);
+    setStartCount(count) {
+        return localStorage.setItem('count', count);
     }
 
     // удаление name из Local Storage
-    static removeName() {
-        return localStorage.clear('name');
+    updateCount() {
+        const count = parseInt(this.getCount()) + 1;
+        this.setStartCount(count);
     }
 }
 
-LocalStorageService.setName('Ivan');
-console.log(LocalStorageService.getName());
-// LocalStorageService.removeName();
+class LocalStorageServiceChild extends LocalStorageServicePar {
 
+    constructor() {
+        super()
+    }
+
+    getCountChild() {
+        return this.getCount();
+    }
+
+    setStartCountChild(count) {
+        return this.setStartCount(count);
+    }
+
+    updateCountChild() {
+        return this.updateCount();
+    }
+}
+
+
+const obj = new LocalStorageServiceChild();
+
+obj.setStartCountChild(1);
+console.log(obj.getCountChild());
+obj.updateCountChild();
+console.log(obj.getCountChild());
 
 
