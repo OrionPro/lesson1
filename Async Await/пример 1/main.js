@@ -1,4 +1,3 @@
-
 /*
 Объявление async function определяет асинхронную функцию, которая возвращает объект Promise.
 
@@ -11,22 +10,20 @@
  */
 
 function resolveAfter2Seconds(x) {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            resolve(x);
-        }, 2000);
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+          reject(x);
+      }, 2000);
     });
 }
 
 async function asyncExample(x) {
-    console.log('1');
     const a = await resolveAfter2Seconds(20);
-    console.log('2');
-    const b = await resolveAfter2Seconds(30);
-    console.log('3');
-    return x + a + b;
+    return x + a;
 }
 
-asyncExample(10).then(v => {
-    console.log(v);  // 60 через 4 секунды
-});
+asyncExample(10)
+    .then(v => {
+        console.log(v);  // 60 через 4 секунды
+    })
+    .catch();
